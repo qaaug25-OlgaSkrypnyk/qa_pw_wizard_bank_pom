@@ -32,7 +32,7 @@ test.beforeEach(async ({ page }) => {
   */
 });
 
-test('Assert manager can add new customer', async ({ page }) => {
+test('Assert manager can open account for customer', async ({ page }) => {
   const addCustomerPage = new AddCustomerPage(page);
   const openAccountPage = new OpenAccountPage(page);
   

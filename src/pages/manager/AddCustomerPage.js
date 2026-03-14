@@ -3,7 +3,6 @@ import { expect } from '@playwright/test';
 export class AddCustomerPage {
   constructor(page) {
     this.page = page;
-    this.addCustomerButton = page.getByRole('button', { name: 'Add Customer' });
   }
 
   async open() {
@@ -34,9 +33,5 @@ export class AddCustomerPage {
 
   async clickOpenAccountButton() {
   await this.page.getByRole('button', { name: 'Open Account' }).click();
-  }
-
-  async assertSelectCustomerDropdownIsVisible() {
-    await expect(this.customerDropDown).toBeVisible();
   }
 }

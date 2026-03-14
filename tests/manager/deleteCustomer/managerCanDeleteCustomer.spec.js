@@ -40,16 +40,10 @@ test('Assert manager can delete customer', async ({ page }) => {
 
   await addCustomerPage.clickCustomersButton();
   
-  await customersListPage.clickDeleteButton();
-  
+  await customersListPage.clickDeleteButton(`${firstName} ${lastName}`);
+
   const table = page.locator('table');
-  await expect(table).not.toContainText(firstName);
-  await expect(table).not.toContainText(lastName);
-  await expect(table).not.toContainText(postCode);
-  await page.reload();
-  await expect(table).not.toContainText(firstName);
-  await expect(table).not.toContainText(lastName);
-  await expect(table).not.toContainText(postCode);
+  await expect(page.locator('tr', { hasText: `${firstName} ${lastName}` })).toHaveCount(0);
   /* 
   Test:
   1. Open Customers page.

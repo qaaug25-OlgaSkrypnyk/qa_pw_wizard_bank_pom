@@ -10,9 +10,11 @@ export class CustomersListPage {
   }
 
  
-  async clickDeleteButton() {
-  await this.page.locator('tr').last().getByRole('button', { name: 'Delete' }).click();  
-  }
+ async clickDeleteButton(customerName) {
+  await this.page.locator('tr', { hasText: customerName })
+    .getByRole('button', { name: 'Delete' })
+    .click();
+}
 
  async searchCustomer(name) {
   await this.page.getByPlaceholder('Search Customer').fill(name);

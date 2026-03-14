@@ -19,18 +19,12 @@ export class OpenAccountPage {
     await this.currencySelect.selectOption(currency);
   }
 
-  async clickOpenAccountButton() {
-  await this.page.getByRole('form').getByRole('button', { name: 'Open Account' }).click();
-}
 
- async selectCustomer(customer) {
+
+  async selectCustomer(customer) {
   await this.customerSelect.selectOption({ label: customer });
  }
   
-  async clickCustomer() {
-  await this.page.locator('tr').last().getByRole('button', { name: 'Customer' }).click();  
-  }
-
   async clickProcessButton() {
   await this.page.getByRole('button', { name: 'Process' }).click();  
   }
